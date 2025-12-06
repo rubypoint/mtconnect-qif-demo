@@ -14,6 +14,8 @@ The objective is:
 
 We will then reestablish the traceability of this data back to the original QIF features from which it came. 
 
+[A detailed explanation of this system can be found here.](how-it-works.md)
+
 ### Important links:
 
 * LinuxCNC documentation https://linuxcnc.org/docs/html/config/python-interface.html?utm_source=chatgpt.com#_linuxcnc_stat_attributes
@@ -117,6 +119,13 @@ You can customize these values by editing `setup.sh` before sourcing it.
     python3 mtconnect/log_processor.py logs/mtc_client.log -o logs/xml_only.xml
     ```
 
+## Future Work
+
+This initial effort focused on establishing the methods to pass feature traceability information through a device, using MTConnect. Future work will focus on a couple areas: 
+
+1. **Data model for feature attribute data**: The schema used in this demonstration for seeding g-code with QIF feature information is not robust. There are a least 2 cases that would not be handled properly: (1) when a give surface participates in more than one feature, and (2) when a single line of g-code covers only a partial feature. The first case can arguable be handled by the current schema, but the second case is definitely a weakness. 
+2. **Methods to seed g-code with feature attribute data**: For this demonstration, the attribute data was added manually to the g-code. Future efforts will need to ensure that this is the natural outcome of a streamlined software workflow. More engagement with CAM software providers is needed in this area. 
+
 ## References
 
 The QIF and NC data used to set up this demonstrator were taken from this publicly available dataset: [Design, Manufacturing, and Inspection Data for a Box Assembly - Catalog](https://catalog.data.gov/dataset/design-manufacturing-and-inspection-data-for-a-box-assembly-9b03e). Big thanks to the [Manufacturing Technology Centre (MTC)](https://www.the-mtc.org/) and [NIST](https://www.nist.gov/) for their research and efforts in this area!
@@ -129,6 +138,6 @@ The QIF and NC data used to set up this demonstrator were taken from this public
 
 Have any questions? Get in touch with us here:
 
-[![Website](https://img.shields.io/badge/Website-rubypoint.io-2ea44f?style=for-the-badge)](https://rubypoint.io/) 
+[![Website](https://img.shields.io/badge/Website-rubypoint.io-9D0B28?style=for-the-badge)](https://rubypoint.io/) 
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/company/rubypoint/)
