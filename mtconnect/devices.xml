@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MTConnectDevices xmlns="urn:mtconnect.org:MTConnectDevices:1.7"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="urn:mtconnect.org:MTConnectDevices:1.7 MTConnectDevices_1.7.xsd">
+  <Header creationTime="2025-01-01T00:00:00Z" sender="linuxcnc" instanceId="1" version="1.7" />
+  <Devices>
+    <Device id="dev" name="LinuxCNC" uuid="linuxcnc-sim">
+      <Description>LinuxCNC Simulator</Description>
+
+      <Components>
+        <Controller id="ctrl" name="controller">
+          <DataItems>
+            <DataItem id="avail"          category="EVENT" type="AVAILABILITY"      name="avail" />
+            <DataItem id="estop"          category="EVENT" type="EMERGENCY_STOP"    name="estop" />
+            <DataItem id="mode"           category="EVENT" type="CONTROLLER_MODE"   name="mode" />
+            <DataItem id="execution"      category="EVENT" type="EXECUTION"         name="execution" />
+            <DataItem id="program"        category="EVENT" type="PROGRAM"           name="program" />
+            <DataItem id="line_number"    category="EVENT" type="LINE_NUMBER"       name="line_number" subType="ABSOLUTE" />
+            <DataItem id="block"          category="EVENT" type="BLOCK"             name="block" />
+            <!-- NEW: program_comment (PROGRAM_COMMENT) -->
+            <DataItem id="program_comment" category="EVENT" type="PROGRAM_COMMENT"  name="program_comment" />
+            <DataItem id="coolant_flood"  category="EVENT" type="COOLANT"  subType="FLOOD" name="coolant_flood" discrete="true"/>
+            <DataItem id="coolant_mist"   category="EVENT" type="COOLANT"  subType="MIST"  name="coolant_mist"  discrete="true"/>
+            <DataItem id="tool_number"    category="EVENT" type="TOOL_NUMBER"       name="tool_number"/>
+            <DataItem id="work_offset"    category="EVENT" type="WORK_OFFSET"       name="work_offset" discrete="true"/>
+          </DataItems>
+        </Controller>
+
+        <Path id="path" name="path">
+          <DataItems>
+            <DataItem id="path_pos"         category="SAMPLE" type="POSITION"       subType="ACTUAL"
+                      name="path_pos"       units="MILLIMETER" nativeUnits="INCH" coordinateSystem="MACHINE"/>
+            <DataItem id="path_pos_work"    category="SAMPLE" type="POSITION"       subType="ACTUAL"
+                      name="path_pos_work"  units="MILLIMETER" nativeUnits="INCH" coordinateSystem="WORK"/>
+            <DataItem id="path_pos_cmd"     category="SAMPLE" type="POSITION"       subType="COMMANDED"
+                      name="path_pos_cmd"   units="MILLIMETER" nativeUnits="INCH" coordinateSystem="MACHINE"/>
+            <DataItem id="path_feedrate"    category="SAMPLE" type="PATH_FEEDRATE"  name="path_feedrate"
+                      units="MILLIMETER/SECOND" nativeUnits="INCH/MINUTE"/>
+            <!-- Per-axis machine positions -->
+            <DataItem id="x_pos"            category="SAMPLE" type="POSITION"       subType="ACTUAL"
+                      name="x_pos"          units="MILLIMETER" nativeUnits="INCH" coordinateSystem="MACHINE"/>
+            <DataItem id="y_pos"            category="SAMPLE" type="POSITION"       subType="ACTUAL"
+                      name="y_pos"          units="MILLIMETER" nativeUnits="INCH" coordinateSystem="MACHINE"/>
+            <DataItem id="z_pos"            category="SAMPLE" type="POSITION"       subType="ACTUAL"
+                      name="z_pos"          units="MILLIMETER" nativeUnits="INCH" coordinateSystem="MACHINE"/>
+            <!-- Per-axis distance-to-go (vector components) -->
+            <DataItem id="x_dtg"            category="SAMPLE" type="POSITION"
+                      name="x_dtg"          units="MILLIMETER" nativeUnits="INCH" coordinateSystem="MACHINE"/>
+            <DataItem id="y_dtg"            category="SAMPLE" type="POSITION"
+                      name="y_dtg"          units="MILLIMETER" nativeUnits="INCH" coordinateSystem="MACHINE"/>
+            <DataItem id="z_dtg"            category="SAMPLE" type="POSITION"
+                      name="z_dtg"          units="MILLIMETER" nativeUnits="INCH" coordinateSystem="MACHINE"/>
+            <!-- Overrides -->
+            <DataItem id="path_feedrate_ovr" category="SAMPLE" type="PATH_FEEDRATE" subType="OVERRIDE"
+                      name="path_feedrate_ovr" units="PERCENT"/>
+            <DataItem id="spindle_speed_ovr" category="SAMPLE" type="SPINDLE_SPEED" subType="OVERRIDE"
+                      name="spindle_speed_ovr" units="PERCENT"/>
+          </DataItems>
+        </Path>
+
+        <Rotary id="spindle" name="spindle">
+          <DataItems>
+            <DataItem id="spindle_speed" category="SAMPLE" type="SPINDLE_SPEED"
+                      name="spindle_speed" units="REVOLUTION/MINUTE"/>
+          </DataItems>
+        </Rotary>
+
+      </Components>
+    </Device>
+  </Devices>
+</MTConnectDevices>

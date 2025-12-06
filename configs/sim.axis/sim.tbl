@@ -1,0 +1,17 @@
+T1 P1 Z0.511 D0.125 ;1/8 end mill 
+T2 P2 Z0.1 D0.0625 ;1/16 end mill 
+T3 P3 Z1.273 D0.201 ;#7 tap drill 
+T21 P21 Z0.000 D0.125 ;1/8 spot drill (sim)
+T99999 P99999 Z0.1 ;big tool number 
+T4 P4 Z0 D.005 ;Added 20131029 
+T5 P5 Z0.000 D0.250 ;sim default
+T6 P6 Z0.000 D0.250 ;sim default
+T7 P7 Z0.000 D0.250 ;sim default
+T8 P8 Z0.000 D0.250 ;sim default
+T9 P9 Z0.000 D0.125 ;sim default
+T10 P10 Z0.000 D0.125 ;sim default
+T12 P12 Z0.000 D0.250 ;sim default
+T13 P13 Z0.000 D0.250 ;sim default
+T15 P15 Z0.000 D0.250 ;sim default
+T23 P23 Z0.000 D0.125 ;sim default
+T24 P24 Z0.000 D0.125 ;sim default
