@@ -116,7 +116,7 @@ You can customize these values by editing `setup.sh` before sourcing it.
     Once you have finished capturing data, you can filter it and dump it to an XML file for further processing: 
     
     ```bash
-    python3 mtconnect/log_processor.py logs/mtc_client.log -o logs/xml_only.xml
+    python3 mtconnect/log_processor.py logs/mtc_client.log -o logs/box4_left.xml
     ```
 
 ## Future Work
